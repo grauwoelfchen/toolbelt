@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# curl --silent \
+#   --header "Access-Token: ${PUSHBULLET_ACCESS_TOKEN}" \
+#   https://api.pushbullet.com/v2/devices | \
+#   jq .
+
+root_dir=$(dirname $(readlink -f ${0}))
+source ${root_dir}/.env
+
+body="${1}"
+
+# rinderhorn
+curl --silent \
+  --header "Access-Token: ${PUSHBULLET_ACCESS_TOKEN}" \
+  --header "Content-Type: application/json" \
+  --request POST \
+  --data-binary "{
+    \"device_iden\": \"${PUSHBULLET_DEVICE_IDEN_RINDERHORN}\",
+    \"title\": \"Notice\",
+    \"type\": \"note\",
+    \"body\": \"${body}\"
+  }" \
+  https://api.pushbullet.com/v2/pushes | \
+  jq .

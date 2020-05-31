@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# via Synaptics
+synclient=`which synclient`
+
+if [ "${synclient}" = "" ]; then
+  echo "synclient does not exist"
+  exit
+fi;
+
+if [ -z "${1}" ]; then
+  $synclient -l | sed -n "/TouchpadOff/p"
+  exit
+fi
+
+if [ "${1}" = "on" ]; then
+  $synclient TouchpadOff=0
+else
+  $synclient TouchpadOff=1
+fi
+$synclient -l | sed -n "/TouchpadOff/p"

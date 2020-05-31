@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Microsoft Surface Type Cover (Surface Pro 4)
+id=$(
+  xinput list --long | \
+  grep pointer | \
+  grep "Microsoft Surface Type Cover" | \
+  awk '{ print $7 }' | \
+  sed 's/id=//' \
+)
+
+prop="Device Enabled"
+
+if [ "$1" = "on" ]; then
+  # xinput enabled $id
+  xinput set-prop $id "$prop" 1
+else
+  # xinput disable $id
+  xinput set-prop $id "$prop" 0
+fi
+xinput list-props $id | grep "$prop"

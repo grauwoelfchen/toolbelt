@@ -3,6 +3,8 @@ Toolbelt
 
 A repository for my miscellaneous scripts and personal utilities.
 
+* slist
+
 License
 -------
 

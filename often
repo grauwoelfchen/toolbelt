@@ -1,0 +1,34 @@
+#!/bin/sh
+
+options=zO
+
+_=`getopt --name "${0}" \
+--options "${options}" --unquoted -- "${@}"`
+
+if [ $? -ne 0 ]; then
+  exit 2
+fi
+
+with_foldopen=0
+target_file="${0}" # default
+
+while [ $# -gt 0 ]; do
+  case "${1}" in
+    -zO)
+      echo "${1}"
+      with_foldopen=1
+      shift
+      ;;
+    *)
+      target_file="${1}"
+      shift
+      ;;
+  esac
+done
+
+commands="%TOhtml|b2|call quickrun#run()|q"
+if [ $with_foldopen -eq 1 ]; then
+  commands="%foldopen!|${commands}"
+fi
+
+vim "${target_file}" -c "${commands}"

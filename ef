@@ -1,0 +1,25 @@
+#!/bin/sh
+
+max_hits=3000
+dict_num=4
+keyword="${1}"
+
+selection=$(\
+  echo -e \
+  "set max-hits ${max_hits}\\nselect ${dict_num}\\nsearch ${keyword}" | \
+  eblook | \
+  sed -s 's/eblook>//g' | \
+  awk '{print $1 " " $3 $4 $5}' | \
+  fzf --no-mouse
+)
+
+# echo "${selection}"
+content_id=$(echo "${selection}" | awk '{print $1}' | sed -s 's/[^0-9]//')
+
+echo "${content_id}" | \
+  xargs -I '%' echo -e \
+    "select ${dict_num}\\nsearch ${keyword}\ncontent "%"" | \
+  eblook | \
+  grep -v 'eblook>' |
+  grep -v '<more' | grep -v 'prev>' | grep -v 'next>' | \
+  grep -v '^\(\s\+\)\?[0-9]\+\.\s[0-9]\+:[0-9]\+'

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+espeak --stdout "{$*}" -vaf+4 -a 70 -p 89 -s 170 -v english | \
+  aplay >/dev/null 2>&1

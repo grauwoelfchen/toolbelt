@@ -7,6 +7,7 @@ A repository for my miscellaneous scripts and personal utilities.
 * pushb
 * slist
 * touchpad-{synclient,xinput}
+* x11-display
 
 License
 -------

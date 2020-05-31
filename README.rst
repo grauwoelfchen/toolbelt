@@ -8,6 +8,7 @@ A repository for my miscellaneous scripts and personal utilities.
 * pushb
 * say
 * slist
+* sound
 * touchpad-{synclient,xinput}
 * x11-display
 

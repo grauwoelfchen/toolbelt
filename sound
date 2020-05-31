@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# % sound bell
+# % sound message
+
+# ogg123 -q -d alsa "/usr/share/sounds/freedesktop/stereo/${1}.oga"
+play -q "/usr/share/sounds/freedesktop/stereo/${1}.oga"
+
+# for irc notificationh
+# libnotify-notify-send -u normal -a irc "${1}"

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# NOTE
+# https://bugzilla.kernel.org/show_bug.cgi?id=109681
+
+set -uo pipefail
+
+iw dev wlp2s0 get power_save
+iw dev wlp2s0 info
+
+# ip link set wlp2s0 down
+
+modprobe -r mwifiex_usb
+modprobe -r mwifiex_pcie
+modprobe -r mwifiex
+
+lspci -D | grep Marvell
+
+echo 1 > /sys/bus/pci/devices/0000\:02\:00.0/reset
+
+modprobe -a mwifiex
+modprobe -a mwifiex_pcie
+modprobe -a mwifiex_usb
+
+while true; do
+  ip link | grep wlp2s0 >/dev/null
+  [ $? = 0 ] && break
+  echo -n "."
+  sleep 3
+done
+
+echo ""
+
+# ip link set wlp2s0 up
+
+iwconfig wlp2s0 power off
+
+iw dev wlp2s0 set power_save off
+iw dev wlp2s0 get power_save
+iw dev wlp2s0 info

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+# % timer <host> <work> <rest>
+
+h=$1
+w=$2
+r=$3
+
+if [ $# -eq 0 ]; then
+  echo "Usage: timer <host> <work> <rest>"
+  exit 1
+fi
+
+20min -w $w -r 0 && \
+  pushb $h "${w} minutes" && \
+  20min -w 0 -r $r && \
+  pushb $h "${r} minutes"

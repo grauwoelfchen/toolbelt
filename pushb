@@ -5,18 +5,35 @@
 #   https://api.pushbullet.com/v2/devices | \
 #   jq .
 
+# % pushb rinderhorn "Hoi"
 root_dir=$(dirname $(readlink -f ${0}))
 source ${root_dir}/.env
 
-body="${1}"
+case "${1}" in
+  rinderhorn)
+    iden="${PUSHBELLET_DEVICE_IDEN_RINDERHORN}"
+    ;;
+  klewenalp)
+    iden="${PUSHBELLET_DEVICE_IDEN_KLEWENALP}"
+    ;;
+  alphubel)
+    iden="${PUSHBELLET_DEVICE_IDEN_ALPHUBEl}"
+    ;;
+  stockhorn)
+    iden="${PUSHBELLET_DEVICE_IDEN_STOCKHORN}"
+    ;;
+  *)
+    exit 1
+    ;;
+esac
 
-# rinderhorn
+body="${2}"
 curl --silent \
   --header "Access-Token: ${PUSHBULLET_ACCESS_TOKEN}" \
   --header "Content-Type: application/json" \
   --request POST \
   --data-binary "{
-    \"device_iden\": \"${PUSHBULLET_DEVICE_IDEN_RINDERHORN}\",
+    \"device_iden\": \"${iden}\",
     \"title\": \"Notice\",
     \"type\": \"note\",
     \"body\": \"${body}\"

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+date "${@}" | xargs echo -n | xsel -ib

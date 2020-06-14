@@ -1,0 +1,13 @@
+#!/bin/sh
+
+log_dir=$HOME/.atelier/opt/.sync/share/changelog
+
+y=$(date +%Y)
+w=$(expr $(date +%U) + 1)
+
+t=$log_dir/$y/w$w
+
+mkdir -p $t
+echo "${t}"
+
+# vim: ft=sh

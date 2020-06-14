@@ -14,9 +14,8 @@ modprobe -r mwifiex_usb
 modprobe -r mwifiex_pcie
 modprobe -r mwifiex
 
-lspci -D | grep Marvell
-
-echo 1 > /sys/bus/pci/devices/0000\:02\:00.0/reset
+tool_dir=$(dirname $(readlink -f $0))
+$tool_dir/fix-mwifiex
 
 modprobe -a mwifiex
 modprobe -a mwifiex_pcie

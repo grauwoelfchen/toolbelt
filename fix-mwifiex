@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# reset
+device=$(lspci -D | grep Marvell | awk '{ print $1 }')
+echo 1 > /sys/bus/pci/devices/$device/reset

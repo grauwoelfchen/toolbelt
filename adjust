@@ -1,0 +1,20 @@
+#!/bin/sh
+
+root_dir=$(dirname $(readlink -f ${0}))
+
+case "$1" in
+  focus)
+    xrandr --output eDP1 --off
+    sudo $root_dir/adjustwlan
+    break
+    ;;
+  anywhere)
+    xrdb -merge $HOME/.Xresources.eDP1
+    xmodmap $HOME/.Xmodmap.surface
+    sudo $root_dir/adjustwlan
+    sudo $root_dir/adjustclock
+    break
+    ;;
+  *)
+    echo "unknown argument given: $1"
+esac

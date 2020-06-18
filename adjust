@@ -5,10 +5,12 @@ root_dir=$(dirname $(readlink -f ${0}))
 case "$1" in
   focus)
     xrandr --output eDP1 --off
+    xrdb -merge $HOME/.Xresources
     sudo $root_dir/adjustwlan
     break
     ;;
   anywhere)
+    xrandr --output eDP1
     xrdb -merge $HOME/.Xresources.eDP1
     xmodmap $HOME/.Xmodmap.surface
     sudo $root_dir/adjustwlan

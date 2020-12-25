@@ -1,24 +1,24 @@
 #!/bin/sh
 
 # Asika/Tokyo
-# ntpdate ntp0.jst.mfeed.ad.jp
-# ntpdate ntp1.jst.mfeed.ad.jp
-# ntpdate ntp2.jst.mfeed.ad.jp
-# ntpdate ntp3.jst.mfeed.ad.jp
-# ntpdate 0.jp.pool.ntp.org
-# ntpdate 1.jp.pool.ntp.org
-# ntpdate 2.jp.pool.ntp.org
-# ntpdate 3.jp.pool.ntp.org
+# sudo ntpdate ntp0.jst.mfeed.ad.jp
+# sudo ntpdate ntp1.jst.mfeed.ad.jp
+# sudo ntpdate ntp2.jst.mfeed.ad.jp
+# sudo ntpdate ntp3.jst.mfeed.ad.jp
+# sudo ntpdate 0.jp.pool.ntp.org
+# sudo ntpdate 1.jp.pool.ntp.org
+# sudo ntpdate 2.jp.pool.ntp.org
+# sudo ntpdate 3.jp.pool.ntp.org
 
 # Europe/Zurich
-# ntpdate 0.europe.pool.ntp.org
-# ntpdate 1.europe.pool.ntp.org
-# ntpdate 2.europe.pool.ntp.org
-# ntpdate 3.europe.pool.ntp.org
-# ntpdate 0.ch.pool.ntp.org
-# ntpdate 1.ch.pool.ntp.org
-# ntpdate 2.ch.pool.ntp.org
-# ntpdate 3.ch.pool.ntp.org
+# sudo ntpdate 0.europe.pool.ntp.org
+# sudo ntpdate 1.europe.pool.ntp.org
+# sudo ntpdate 2.europe.pool.ntp.org
+# sudo ntpdate 3.europe.pool.ntp.org
+# sudo ntpdate 0.ch.pool.ntp.org
+# sudo ntpdate 1.ch.pool.ntp.org
+# sudo ntpdate 2.ch.pool.ntp.org
+sudo ntpdate 3.ch.pool.ntp.org
 
-hwclock --systohc
-hwclock -w
+sudo hwclock --systohc
+sudo hwclock -w

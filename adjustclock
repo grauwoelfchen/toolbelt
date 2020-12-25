@@ -1,24 +1,27 @@
 #!/bin/sh
 
-# Asika/Tokyo
-# sudo ntpdate ntp0.jst.mfeed.ad.jp
-# sudo ntpdate ntp1.jst.mfeed.ad.jp
-# sudo ntpdate ntp2.jst.mfeed.ad.jp
-# sudo ntpdate ntp3.jst.mfeed.ad.jp
-# sudo ntpdate 0.jp.pool.ntp.org
-# sudo ntpdate 1.jp.pool.ntp.org
-# sudo ntpdate 2.jp.pool.ntp.org
-# sudo ntpdate 3.jp.pool.ntp.org
+zone="${1:-'Europe/Zurich'}"
+echo "${zone}"
 
-# Europe/Zurich
-# sudo ntpdate 0.europe.pool.ntp.org
-# sudo ntpdate 1.europe.pool.ntp.org
-# sudo ntpdate 2.europe.pool.ntp.org
-# sudo ntpdate 3.europe.pool.ntp.org
-# sudo ntpdate 0.ch.pool.ntp.org
-# sudo ntpdate 1.ch.pool.ntp.org
-# sudo ntpdate 2.ch.pool.ntp.org
-sudo ntpdate 3.ch.pool.ntp.org
+if [ "${zone}" == "Europe/Zurich" ]; then
+  # sudo ntpdate 0.europe.pool.ntp.org
+  # sudo ntpdate 1.europe.pool.ntp.org
+  # sudo ntpdate 2.europe.pool.ntp.org
+  # sudo ntpdate 3.europe.pool.ntp.org
+  # sudo ntpdate 0.ch.pool.ntp.org
+  # sudo ntpdate 1.ch.pool.ntp.org
+  # sudo ntpdate 2.ch.pool.ntp.org
+  sudo ntpdate 3.ch.pool.ntp.org
+elif [ "${zone}" == "Asia/Tokyo" ]; then
+  # sudo ntpdate ntp0.jst.mfeed.ad.jp
+  # sudo ntpdate ntp1.jst.mfeed.ad.jp
+  # sudo ntpdate ntp2.jst.mfeed.ad.jp
+  # sudo ntpdate ntp3.jst.mfeed.ad.jp
+  # sudo ntpdate 0.jp.pool.ntp.org
+  # sudo ntpdate 1.jp.pool.ntp.org
+  # sudo ntpdate 2.jp.pool.ntp.org
+  sudo ntpdate 3.jp.pool.ntp.org
+fi
 
 sudo hwclock --systohc
 sudo hwclock -w

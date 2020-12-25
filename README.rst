@@ -24,6 +24,14 @@ A repository for my miscellaneous scripts and personal utilities.
 License
 -------
 
+``MIT``
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the MIT License.
+
+See LICENSE.
+
 .. code:: text
 
+   Toolbelt
    Copyright 2020 Yasuhiro Яша Asaka

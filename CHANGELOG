@@ -1,3 +1,7 @@
+Fri 25 Dec 2020 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+	* Add scripts: switchzone
+	* Update: adjustclock, fix-docker
+
 Sun 14 Jun 2020 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
 	* Add scripts: adjust, adjustclock, adjustwlan, chnagelog, clipdate,
 	mkdatedir, timer, fix-mwifiex, fix-docker

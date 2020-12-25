@@ -15,4 +15,4 @@ sudo cp /usr/share/zoneinfo/$zone /etc/localtime
 
 sudo rc-service ntp-client restart
 
-$script_dir/adjustclock
+$script_dir/adjustclock "${zone}"

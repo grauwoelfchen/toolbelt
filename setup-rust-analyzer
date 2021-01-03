@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -eux
+
+rustup component add rust-src
+
+base_url="https://github.com/rust-analyzer/rust-analyzer/releases/download"
+
+# target
+release="2020-12-28"
+commit="1d53075"
+
+location="$HOME/.atelier/bin"
+
+# binary
+name="rust-analyzer"
+platform="linux"
+
+download_url="${base_url}/${release}/${name}-${platform}"
+
+curl -sL $download_url -o $location/$name
+chmod +x $location/$name
+
+set +x
+
+version=$($location/$name --version)
+if [ "${version}" != "${name} ${commit}" ]; then
+  echo "---> Something wrong :'("
+  exit 2
+fi
+
+echo "---> Done"

@@ -1,5 +1,7 @@
 .bundle
 .archive
 
+.env
+
 rust-analyzer
 gotest

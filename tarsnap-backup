@@ -1,0 +1,25 @@
+#!/bin/sh
+
+which tarsnap 2>/dev/null
+if [ $? -ne 0 ]; then
+  echo "tarsnap is not installed"
+  exit 1
+fi
+
+ts="${1:-""}"
+if [ "${ts}" = "" ]; then
+  echo "Usage: ${0} <target directory or file>"
+  exit 1
+fi
+
+tn="$(echo "${ts}" | sed "s/^\///g" | sed "s/\\//-/g" | sed "s/\\./dot/g")"
+un="$(uname -n)"
+dt="$(date +%Y%m%d%H%M%S)"
+an="${un}-${dt}-${tn}"
+
+echo "Name: ${an}\n"
+
+time \
+  tarsnap -c -f "${an}" $ts
+
+echo "\nDone: $(date)"

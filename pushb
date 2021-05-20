@@ -5,13 +5,13 @@
 #   https://api.pushbullet.com/v2/devices | \
 #   jq .
 
-# % pushb rinderhorn "Hoi"
+# % pushb stockhorn "Hoi"
 root_dir=$(dirname $(readlink -f ${0}))
 source ${root_dir}/.env
 
 case "${1}" in
-  rinderhorn)
-    iden="${PUSHBELLET_DEVICE_IDEN_RINDERHORN}"
+  schafberg)
+    iden="${PUSHBELLET_DEVICE_IDEN_SCHAFBERG}"
     ;;
   klewenalp)
     iden="${PUSHBELLET_DEVICE_IDEN_KLEWENALP}"

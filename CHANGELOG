@@ -1,3 +1,6 @@
+Mon 22 Mar 2021 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+	* Add scripts: tarsnap-backup
+
 Fri 25 Dec 2020 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
 	* Add scripts: switchzone
 	* Update: adjustclock, fix-docker

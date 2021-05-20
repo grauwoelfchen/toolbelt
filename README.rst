@@ -20,6 +20,7 @@ A repository for my miscellaneous scripts and personal utilities.
 * timer
 * touchpad-{synclient,xinput}
 * x11-display
+* tarsnap-backup
 
 License
 -------

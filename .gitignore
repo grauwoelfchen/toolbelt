@@ -1,6 +1,8 @@
 .bundle
 .archive
 
+.env
+
 20min
 rust-analyzer
 gotest

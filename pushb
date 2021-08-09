@@ -13,14 +13,8 @@ case "${1}" in
   schafberg)
     iden="${PUSHBELLET_DEVICE_IDEN_SCHAFBERG}"
     ;;
-  klewenalp)
-    iden="${PUSHBELLET_DEVICE_IDEN_KLEWENALP}"
-    ;;
-  alphubel)
-    iden="${PUSHBELLET_DEVICE_IDEN_ALPHUBEl}"
-    ;;
-  stockhorn)
-    iden="${PUSHBELLET_DEVICE_IDEN_STOCKHORN}"
+  klewenalp|alphubel|stockhorn)
+    iden="${PUSHBELLET_DEVICE_IDEN}"
     ;;
   *)
     exit 1

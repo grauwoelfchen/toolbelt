@@ -2,29 +2,32 @@
 
 set -eux
 
-rustup component add rust-src
+# rustup component add rust-src
 
 base_url="https://github.com/rust-analyzer/rust-analyzer/releases/download"
 
 # target
-release="2020-12-28"
-commit="1d53075"
+release="2021-08-09"
+commit="5664a2b"
 
+toolchain="stable"
 location="$HOME/.atelier/bin"
 
 # binary
 name="rust-analyzer"
-platform="linux"
+platform="x86_64-unknown-linux-gnu"
 
-download_url="${base_url}/${release}/${name}-${platform}"
+download_url="${base_url}/${release}/${name}-${platform}.gz"
 
-curl -sL $download_url -o $location/$name
+curl -sL $download_url -o $location/$name.gz
+gunzip $location/$name.gz
+
 chmod +x $location/$name
 
 set +x
 
 version=$($location/$name --version)
-if [ "${version}" != "${name} ${commit}" ]; then
+if [ "${version}" != "${name} ${commit} ${release} ${toolchain}" ]; then
   echo "---> Something wrong :'("
   exit 2
 fi

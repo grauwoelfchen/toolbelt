@@ -2,12 +2,31 @@
 
 log_dir=$HOME/.atelier/opt/.sync/share/changelog
 
-y=$(date +%Y)
-w=$(expr $(date +%U) + 1)
+# ISO-8601
+# year=$(date +%G)
+# week=$(date +%V)
 
-t=$log_dir/$y/w$w
+# US
+year=$(date +%Y)
+# same with `cal --sunday -week -3` (with leading zero)
+week=$(printf "%02d" $(expr $(date +%U) + 1))
 
-mkdir -p $t
-echo "${t}"
+path=$log_dir/$year/w$week
+
+mkdir -p $path
+
+if [ ! -f "${path}/CHANGELOG" ]; then
+  cat << TMPL > $path/CHANGELOG
+Tue 22 Feb 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+  Learn about "Hello, world!"
+
+	* Hack: echo "Hello, world!"
+
+# https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html
+# vim: ft=changelog
+TMPL
+fi
+
+echo "${path}"
 
 # vim: ft=sh

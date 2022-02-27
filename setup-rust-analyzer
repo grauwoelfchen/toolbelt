@@ -7,8 +7,8 @@ set -eux
 base_url="https://github.com/rust-analyzer/rust-analyzer/releases/download"
 
 # target
-release="2021-08-09"
-commit="5664a2b"
+release="2022-02-14"
+commit="02904e99a"
 
 toolchain="stable"
 location="$HOME/.atelier/bin"
@@ -27,6 +27,8 @@ chmod +x $location/$name
 set +x
 
 version=$($location/$name --version)
+echo "${version}"
+
 if [ "${version}" != "${name} ${commit} ${release} ${toolchain}" ]; then
   echo "---> Something wrong :'("
   exit 2

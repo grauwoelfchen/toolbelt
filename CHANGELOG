@@ -1,6 +1,7 @@
 Mon 21 Mar 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
 	Add new scripts
 
+	* fix-discord-audio: Add null audio sink for Discord
 	* fix-steam-data: Restore/Archive game directories created by Steam client
 
 Fri 18 Feb 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>

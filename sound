@@ -1,10 +1,87 @@
 #!/bin/sh
 
-# % sound bell
-# % sound message
+set -euo pipefail
 
-# ogg123 -q -d alsa "/usr/share/sounds/freedesktop/stereo/${1}.oga"
-play -q "/usr/share/sounds/freedesktop/stereo/${1}.oga"
+# % sound --help
+# % sound --list
+# % sound --f=bell
+# % sound --file message --count 3
 
-# for irc notificationh
-# libnotify-notify-send -u normal -a irc "${1}"
+opts=$(getopt --long "help,list,count:,file:" -o "hlc:f:" -- "${@}")
+
+if [ $? != 0 ]; then
+  echo "unexpected error occured :'(" >&2
+  exit 1
+fi
+
+eval set -- "${opts}"
+
+h="false"
+l="false"
+c=1
+f=""
+
+while true; do
+  case "${1}" in
+  -h|--help)
+    h="true"
+    shift
+    ;;
+  -l|--list)
+    l="true"
+    shift
+    ;;
+  -c|--count)
+    c="${2}"
+    shift 2
+    ;;
+  -f|--file)
+    f="${2}"
+    shift 2
+    ;;
+  --)
+    shift
+    break
+    ;;
+  *)
+    echo "invalid options are given :'(" >&2
+    exit 1
+    ;;
+  esac
+done
+
+if [ "${h}" == "true" ]; then
+  cat <<HELP
+Usage: sound [OPTIONS]
+
+Options:
+-h, --help            Display this message
+-l, --list            Show .oga file names available for --file
+-c, --count NUMBER    Specify number of times to repeat (default: 1)
+-f, --file NAME       Specify basename of sound file
+HELP
+  exit 0
+fi
+
+dir="/usr/share/sounds/freedesktop/stereo"
+
+if [ "${l}" == "true" ]; then
+  ls -l $dir | awk '/.oga/ { sub(".oga", "", $9); print $9 }'
+  exit 0
+fi
+
+if [ "${f}" == "" ] || [ ! -f "${dir}/${f}.oga" ]; then
+  echo "no such sound file :'(" >&2
+  exit 1
+else
+  # NOTE: for irc notificationh
+  # libnotify-notify-send -u normal -a irc "${f}"
+
+  # (media-sound/vorbis-tools)
+  # ogg123 -q -d alsa "${dir}/${f}.oga"
+  # (media-sound/sox USE="ogg")
+  for _ in $(seq $c); do
+    play -q "${dir}/${f}.oga"
+    sleep 0.45
+  done
+fi

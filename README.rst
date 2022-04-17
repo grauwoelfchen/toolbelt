@@ -4,8 +4,8 @@ Toolbelt
 A repository for my miscellaneous scripts and personal utilities.
 
 * adjust
-  * adjustclock
-  * adjustwlan
+* adjustclock
+* adjustwlan
 * changelog
 * clipdate
 * ef
@@ -15,12 +15,16 @@ A repository for my miscellaneous scripts and personal utilities.
 * often
 * pushb
 * say
+* setup-rust-analyzer
 * slist
 * sound
+* switchzone
+* tarsnap-backup
 * timer
 * touchpad-{synclient,xinput}
 * x11-display
-* tarsnap-backup
+* xscreensaver-suspend
+
 
 License
 -------
@@ -35,4 +39,4 @@ See LICENSE.
 .. code:: text
 
    Toolbelt
-   Copyright 2020 Yasuhiro Яша Asaka
+   Copyright 2020-2022 Yasuhiro Яша Asaka

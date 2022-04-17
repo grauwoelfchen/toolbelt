@@ -1,0 +1,38 @@
+#!/bin/sh
+
+script_name=$(basename $0)
+sub_command="${1}"
+common_path="${HOME}/.local/share/Steam/steamapps/common"
+
+function help() {
+  echo "${script_name} [restore|archive]"
+}
+
+function prepare() {
+	local dat="${1}"
+	local dst="${common_path}/.${dat}"
+
+	case "${sub_command}" in
+		restore)
+			echo "restoring dst/.\"${dat}\" to \$HOME"
+			mv "${dst}" "${HOME}/${dat}"
+		;;
+		archive)
+			echo "archiving \"${dat}\" into dst/"
+			mv "${HOME}/${dat}" "${dst}"
+		;;
+		*)
+			help
+			exit 1
+		;;
+	esac
+}
+
+# .env
+root_dir=$(dirname $(readlink -f ${0}))
+source ${root_dir}/.env
+
+# NOTE: keep whitespaces in each name. e.g. 'Hoi Zäme'
+while read dat; do
+	prepare "${dat}"
+done < <(echo "${STEAM_GAME_DATA}" | tr "," "\n")

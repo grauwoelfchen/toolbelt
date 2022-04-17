@@ -1,8 +1,9 @@
 .bundle
 .archive
-
 .env
 
 20min
+pumpfoil
 rust-analyzer
 gotest
+exercism

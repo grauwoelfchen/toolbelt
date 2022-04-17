@@ -1,0 +1,9 @@
+#!/bin/sh
+
+heartbeat_duration=60
+
+while true
+do
+  sleep $heartbeat_duration
+  xscreensaver-command -deactivate >/dev/null 2>&1
+done

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# reml: [rem] + ca[l]
+
+function reml() {
+  local v=$1
+
+  local a=""
+  case "${v}" in
+    m)
+      a="-@cwqg"
+      ;;
+    w)
+      a="-@c+wgq"
+      ;;
+    *)
+  esac
+  remind $a $HOME/.reminders
+}
+
+reml $*

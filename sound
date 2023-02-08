@@ -7,6 +7,15 @@ set -euo pipefail
 # % sound --f=bell
 # % sound --file message --count 3
 
+# e.g.
+# card 3: Generic [HD-Audio Generic], device 0: xxxxxxxxx Analog [xxxxxxxxx Analog]
+# Subdevices: 1/1
+# Subdevice #0: subdevice #0
+#
+# ```zsh
+# $ AUDIODEV="hw:3,0" sound -f message
+# ```
+
 opts=$(getopt --long "help,list,count:,file:" -o "hlc:f:" -- "${@}")
 
 if [ $? != 0 ]; then

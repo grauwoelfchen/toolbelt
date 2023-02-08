@@ -4,20 +4,19 @@ set -eux
 
 # rustup component add rust-src
 
-base_url="https://github.com/rust-analyzer/rust-analyzer/releases/download"
-
-# target
-release="2022-02-14"
-commit="02904e99a"
+# e.g. setup-rust-analyzer 2022-10-17
+release="${1:-2022-10-17}"
 
 toolchain="stable"
-location="$HOME/.atelier/bin"
-
-# binary
-name="rust-analyzer"
 platform="x86_64-unknown-linux-gnu"
 
-download_url="${base_url}/${release}/${name}-${platform}.gz"
+# repository
+organization="rust-analyzer"
+name="rust-analyzer"
+repo_url="https://github.com/${organization}/${name}"
+download_url="${repo_url}/releases/download/${release}/${name}-${platform}.gz"
+
+location="$HOME/.atelier/bin"
 
 curl -sL $download_url -o $location/$name.gz
 gunzip $location/$name.gz
@@ -26,12 +25,10 @@ chmod +x $location/$name
 
 set +x
 
-version=$($location/$name --version)
-echo "${version}"
-
-if [ "${version}" != "${name} ${commit} ${release} ${toolchain}" ]; then
+output=$($location/$name --version)
+if [ "${output:0:${#name}}" != "${name}" ]; then
   echo "---> Something wrong :'("
   exit 2
 fi
 
-echo "---> Done"
+echo "${output}"

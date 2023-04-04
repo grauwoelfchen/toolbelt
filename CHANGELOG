@@ -1,3 +1,9 @@
+Wed 06 Apr 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+	Add new scripts
+
+	* q: A wrapper for q programming language (loading a license file etc.)
+	* mkm3u: .m3u playlist file generator
+
 Mon 21 Mar 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
 	Add new scripts
 

@@ -1,5 +1,9 @@
 #!/bin/sh
 
 # eg. mkm3u DIR > NAME.m3u
+if [ $# -ne 1 ]; then
+  exit 0
+fi
+
 dir=$(readlink -f "${1}")
 find "${dir}" -name '*.mp3'

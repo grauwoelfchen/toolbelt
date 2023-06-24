@@ -12,6 +12,8 @@ A repository for my miscellaneous scripts and personal utilities.
 * fix-docker
 * fix-mwifiex
 * mkdatedir
+* mkm3u
+* m3ushuf
 * often
 * pushb
 * say

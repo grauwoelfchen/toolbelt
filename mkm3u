@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# eg. genm3u DIR > NAME.m3u
+# eg. mkm3u DIR > NAME.m3u
 dir=$(readlink -f "${1}")
 find "${dir}" -name '*.mp3'

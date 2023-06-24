@@ -1,0 +1,34 @@
+#!/bin/sh
+# a script for shuffle music play by using m3u (see mkm3u)
+# eg. m3ushuf ~/.atelier/var/studio/music/lrx
+
+set -eu;
+
+script_name=$(basename $0)
+if [ "${#}" -ne 1 ]; then
+  echo "Usage: ${script_name} <dir>"
+  exit 1
+fi
+
+root_dir=$(readlink -f $1)
+dir_name=$(basename $root_dir)
+
+# this script requires m3u file like: /path/to/foo/foo.m3u
+if [ ! -d "${1}" ] || [ ! -f "${root_dir}/${dir_name}.m3u" ]; then
+  echo "No such file or directory"
+  exit 1
+fi
+
+escaped_path=$(echo $root_dir | sed 's/\//\\\//g')
+# this causes exit if -o pipefail is given on the last part with head
+suffix=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
+output="/tmp/${dir_name}-${suffix}.m3u"
+
+trap "rm -f ${output}" INT
+rm -f $output
+
+# see mkm3u
+cat $root_dir/$dir_name.m3u | shuf | \
+  sed "s/^\.\//${escaped_path}\//g" > $output
+
+mplayer -ao pulse -playlist $output

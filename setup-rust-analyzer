@@ -1,13 +1,11 @@
 #!/bin/sh
 
+# setup-rust-analyzer
+
 set -eux
 
-# rustup component add rust-src
-
 # e.g. setup-rust-analyzer 2022-10-17
-release="${1:-2022-10-17}"
-
-toolchain="stable"
+release="${1:-2023-07-10}"
 platform="x86_64-unknown-linux-gnu"
 
 # repository
@@ -17,16 +15,17 @@ repo_url="https://github.com/${organization}/${name}"
 download_url="${repo_url}/releases/download/${release}/${name}-${platform}.gz"
 
 location="$HOME/.atelier/bin"
+bin="${name}"
 
-curl -sL $download_url -o $location/$name.gz
-gunzip $location/$name.gz
+curl -sL $download_url -o $location/$bin.gz
+gunzip $location/$bin.gz
 
-chmod +x $location/$name
+chmod +x $location/$bin
 
 set +x
 
-output=$($location/$name --version)
-if [ "${output:0:${#name}}" != "${name}" ]; then
+output=$($location/$bin --version)
+if [ "${output:0:${#bin}}" != "${bin}" ]; then
   echo "---> Something wrong :'("
   exit 2
 fi

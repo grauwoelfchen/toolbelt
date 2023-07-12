@@ -11,12 +11,12 @@ case "$1" in
     sudo $root_dir/adjustwlan
     break
     ;;
-  anywhere)
+  any|anywhere)
     xrandr --output eDP1
     xrdb -merge $HOME/.Xresources.eDP1
     xmodmap $HOME/.Xmodmap.surface
     sudo $root_dir/adjustwlan
-    sudo $root_dir/adjustclock $zone
+    sudo $root_dir/adjustclock "${zone}"
     break
     ;;
   *)

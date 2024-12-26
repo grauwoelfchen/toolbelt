@@ -1,3 +1,14 @@
+Thu 26 Dec 2024 Yasha <yasuhiro.asaka@grauwoelfchen.net>
+  Update README.rst
+
+	* README.rst: Fix syntax for a reStructuredText table
+
+	Update following scripts
+
+	* timer: Use dunstify (instead of pushb)
+	* setup-rust-analyzer: Update to handle HTTP response errors
+	* ef: Add STDIN support
+
 Wed 06 Apr 2022 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	Add new scripts
 

@@ -1,34 +1,34 @@
-Wed 06 Apr 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Wed 06 Apr 2022 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	Add new scripts
 
 	* q: A wrapper for q programming language (loading a license file etc.)
 	* mkm3u: .m3u playlist file generator
 
-Mon 21 Mar 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Mon 21 Mar 2022 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	Add new scripts
 
 	* fix-discord-audio: Add null audio sink for Discord
 	* fix-steam-data: Restore/Archive game directories created by Steam client
 
-Fri 18 Feb 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Fri 18 Feb 2022 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	* sound: Add options
 
-Fri 21 May 2021 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Fri 21 May 2021 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	* Update: Fix zone argument for adjustclock in adjust
 
-Mon 22 Mar 2021 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Mon 22 Mar 2021 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	* Add scripts: tarsnap-backup
 
-Fri 25 Dec 2020 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Fri 25 Dec 2020 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	* Add scripts: switchzone
 	* Update: adjustclock, fix-docker
 
-Sun 14 Jun 2020 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Sun 14 Jun 2020 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	* Add scripts: adjust, adjustclock, adjustwlan, chnagelog, clipdate,
 	mkdatedir, timer, fix-mwifiex, fix-docker
 	* Update: pushb
 
-Sun 31 May 2020 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+Sun 31 May 2020 Yasha <yasuhiro.asaka@grauwoelfchen.net>
 	* Add scripts: ef, often, pushb, say, slist, sound,
 	touchpad-{synclient,xinput} and x11-display
 	* Initial commit

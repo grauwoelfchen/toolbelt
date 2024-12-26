@@ -2,7 +2,17 @@
 
 max_hits=3000
 dict_num=4
-keyword="${1}"
+
+keyword="${1:-}"
+if [[ -z "${keyword}" ]]; then
+  read -p "> " keyword
+fi
+
+if [[ "${#keyword}" < 1 ]]; then
+  echo
+  echo "Usage: ef [KEYWORD]"
+  exit 1
+fi
 
 selection=$(\
   echo -e \

@@ -1,3 +1,18 @@
+..
+   RestructuredText: warning and note directives are not properly rendered #1682
+   https://github.com/github/markup/issues/1682
+
+.. note::
+
+   This repository has been moved. Please check the new locations below.
+
+   * `~grauwoelfchen/toolbelt`_ on Sourcehut
+   * `grauwoelfchen/toolbelt`_ on Codeberg
+
+.. _~grauwoelfchen/toolbelt: https://git.sr.ht/~grauwoelfchen/toolbelt
+.. _grauwoelfchen/toolbelt: https://codeberg.org/grauwoelfchen/toolbelt
+
+
 Toolbelt
 ========
 

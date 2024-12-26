@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# setup-elm-compiler
+
+set -eux
+
+# e.g. setup-elm-compiler 0.19.1
+release=${1:-0.19.1}
+platform="binary-for-linux-64-bit"
+
+# repository
+organization="elm"
+name="compiler"
+repo_url="https://github.com/${organization}/${name}"
+download_url="${repo_url}/releases/download/${release}/${platform}.gz"
+
+location="$HOME/.atelier/bin"
+bin="elm"
+
+curl -sL $download_url -o $location/$bin.gz
+gunzip $location/$bin.gz
+
+chmod +x $location/$bin
+
+set +x
+
+output=$($location/$bin --version)
+if [ "${output}" != "${release}" ]; then
+  echo "---> Something wrong :'("
+  exit 2
+fi
+
+echo "${output}"

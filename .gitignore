@@ -3,8 +3,11 @@
 .env
 
 20min
+kind
 pumpfoil
 rust-analyzer
+elm
+elm-test-rs
 gotest
 exercism
 mount-*

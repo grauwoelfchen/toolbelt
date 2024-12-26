@@ -3,29 +3,36 @@ Toolbelt
 
 A repository for my miscellaneous scripts and personal utilities.
 
-* adjust
-* adjustclock
-* adjustwlan
-* changelog
-* clipdate
-* ef
-* fix-docker
-* fix-mwifiex
-* mkdatedir
-* mkm3u
-* m3ushuf
-* often
-* pushb
-* say
-* setup-rust-analyzer
-* slist
-* sound
-* switchzone
-* tarsnap-backup
-* timer
-* touchpad-{synclient,xinput}
-* x11-display
-* xscreensaver-suspend
+.. table:: Utilities
+   :widths: auto
+
+   ============================  ======================================
+   Name                          Description
+   ============================  ======================================
+   adjust
+   adjustclock
+   adjustwlan
+   changelog
+   clipdate
+   ef                            Find a word from eblook dictionaries
+   fix-docker
+   fix-mwifiex
+   mkdatedir
+   mkm3u
+   m3ushuf
+   often
+   pushb
+   say
+   setup-rust-analyzer           Install rust-analyzer
+   slist
+   sound
+   switchzone
+   tarsnap-backup
+   timer
+   touchpad-{synclient,xinput}
+   x11-display
+   xscreensaver-suspend
+   ============================  ======================================
 
 
 License
@@ -41,4 +48,4 @@ See LICENSE.
 .. code:: text
 
    Toolbelt
-   Copyright 2020-2022 Yasuhiro Яша Asaka
+   Copyright 2020-2024 Yasha
